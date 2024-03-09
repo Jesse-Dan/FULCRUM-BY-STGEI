@@ -1,0 +1,51 @@
+name: untitled
+description: "A new Flutter project."
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  mysql1:
+  go_navigator: ^1.0.0
+  easy_dashboard: ^0.0.2
+  google_fonts: 6.1.0
+  intl: ^0.19.0
+  get_storage: ^2.1.1
+  loading_progress_indicator: ^0.1.6
+  in_app_notification: ^1.1.2
+  pin_code_text_field: ^1.8.0
+  webview_flutter: ^4.5.0
+  text_scroll: ^0.2.0
+  flutter_svg: ^2.0.10+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+
+
+  assets:
+    - assets/fonts/
+    - assets/Audio/
+    - assets/Icons/
+    - assets/Images/
+    - assets/Video/
+
+
+
+  fonts:
+    - family: Satoshi
+      fonts:
+        - asset: assets/fonts/Satoshi/Satoshi-Regular.otf
+        - asset: assets/fonts/Satoshi/Satoshi-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Satoshi/Satoshi-Medium.otf
+          weight: 500
+        - asset: assets/fonts/Satoshi/Satoshi-Light.otf
+          weight: 600
