@@ -3,6 +3,7 @@ import '../../../../../data/UserData.dart';
 import '../../../../enums/enums.dart';
 import 'Novel.dart';
 import 'Syllabus.dart';
+import 'History.dart';
 
 class Exam {
   final int id;
@@ -11,7 +12,7 @@ class Exam {
   final ExamType examType;
   bool selected;
   final List<Subject> subjects;
-  Map<User, List<Map<Subject, int>>>? history;
+  List<History>? history;
   final List<Novel>? examNovels;
   final Syllabus syllabus;
   final Duration duration;
