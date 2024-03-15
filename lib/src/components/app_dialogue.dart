@@ -17,7 +17,10 @@ class AppDialogue extends StatelessWidget {
       this.callBackTextOne,
       this.callBackTextTwo,
       this.handlerBtnCount,
-      this.child, this.titleColor, this.callBackTextTwoColor, this.callBackTextOneColor})
+      this.child,
+      this.titleColor,
+      this.callBackTextTwoColor,
+      this.callBackTextOneColor})
       : super(key: key);
   final Tag tag;
   final String? message;
@@ -66,12 +69,10 @@ class AppDialogue extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           title ?? '',
-          style: TextStyle(
-            color: titleColor ?? AppColors.kprimary600,
-            fontSize: 24,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge
+              ?.copyWith(color: Colors.white),
           textAlign: TextAlign.center,
         ),
       ),

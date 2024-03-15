@@ -3,21 +3,22 @@ import 'package:go_navigator/go/go.dart';
 import 'package:go_navigator/go/go_args.dart';
 import 'package:untitled/src/features/app/Hub/HubView.dart';
 import 'package:untitled/src/helpers/responsive.dart';
+import 'package:untitled/src/styles/Colors.dart';
 
 import '../Exam/component/ExamStages/SubmittedView.dart';
 
-class Main extends StatefulWidget {
-  static const String routeName = '/';
+class MainView extends StatefulWidget {
+  static const String routeName = '/MainView';
   final int? newIndex;
   Widget? injectChild;
 
-  Main({Key? key, required this.newIndex, this.injectChild}) : super(key: key);
+  MainView({Key? key, required this.newIndex, this.injectChild}) : super(key: key);
 
   @override
-  State<Main> createState() => _MainState();
+  State<MainView> createState() => _MainViewState();
 }
 
-class _MainState extends State<Main> {
+class _MainViewState extends State<MainView> {
   final _navBarItems = [
     const BottomNavigationBarItem(
       icon: Icon(Icons.hub_outlined),
@@ -84,7 +85,7 @@ class _MainState extends State<Main> {
     return Scaffold(
       floatingActionButton: FloatingActionButton.small(onPressed: () {
         Go(context).to(
-            routeName: Main.routeName,
+            routeName: MainView.routeName,
             args: GoArgs(args: [
               {'injectChild': const SubmittedView()}
             ]));
@@ -92,7 +93,9 @@ class _MainState extends State<Main> {
       backgroundColor: Colors.white,
       bottomNavigationBar: Responsive.isMobile(context)
           ? BottomNavigationBar(
-              items: _navBarItems,
+              fixedColor: AppColors.kOtherPurple,
+              unselectedItemColor: Colors.white,
+              items: _navBarItems.sublist(0,5),
               currentIndex: _selectedIndex,
               onTap: (int index) {
                 setState(() {

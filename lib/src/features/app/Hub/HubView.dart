@@ -34,7 +34,7 @@ class _HubViewState extends State<HubView> {
         BoardCardModel(
           title: 'CBT Practice',
           description:
-              'Access over 208,000 past questions and their solutions\nfor JAMB, WAEC, NECO and NABTEB exams',
+              'Access over 208,000 past questions and their solutions for JAMB, WAEC, NECO and NABTEB exams',
           voidCallback: () {
             showAdaptiveDialog(
                 context: context,
@@ -55,7 +55,7 @@ class _HubViewState extends State<HubView> {
                                 message: 'Select A Simulator to proceed');
                           } else {
                             Go(context).to(
-                                routeName: Main.routeName,
+                                routeName: MainView.routeName,
                                 args: GoArgs(args: [
                                   {
                                     'injectChild': ExamView(

@@ -162,7 +162,7 @@ class _JambState extends State<Jamb> {
                         bloc.examVariables.exam?.examMode = ExamMode.Training;
 
                         Go(context).to(
-                            routeName: Main.routeName,
+                            routeName: MainView.routeName,
                             args: GoArgs(args: [
                               {'injectChild': const ExamReady()}
                             ]));
@@ -213,7 +213,7 @@ class _JambState extends State<Jamb> {
                           bloc.examVariables.exam?.examMode = ExamMode.Exam;
 
                           Go(context).to(
-                              routeName: Main.routeName,
+                              routeName: MainView.routeName,
                               args: GoArgs(args: [
                                 {'injectChild': const ExamReady()}
                               ]));

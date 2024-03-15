@@ -33,7 +33,9 @@ BoardCardWidget(context, {required BoardCardModel BoardCardModel}) => InkWell(
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall
-                        ?.copyWith(color: AppColors.kOtherPurple)),
+                        ?.copyWith(color: AppColors.kOtherPurple),
+                    softWrap: true,
+                ),
               ],
             )
           ],

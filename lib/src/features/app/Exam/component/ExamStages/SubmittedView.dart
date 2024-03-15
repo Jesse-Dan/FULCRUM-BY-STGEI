@@ -169,7 +169,7 @@ class _SubmittedViewState extends State<SubmittedView> {
                     btnText: 'View Explanations',
                     onTap: () {
                       Go(context).to(
-                          routeName: Main.routeName,
+                          routeName: MainView.routeName,
                           args: GoArgs(args: [
                             {'injectChild': const ExplanationView()}
                           ]));
@@ -226,7 +226,7 @@ class SubmitedActionButton extends StatelessWidget {
               btnText: 'View Explanations',
               onTap: () {
                 Go(context).to(
-                    routeName: Main.routeName,
+                    routeName: MainView.routeName,
                     args: GoArgs(args: [
                       {'injectChild': const ExplanationView()}
                     ]));

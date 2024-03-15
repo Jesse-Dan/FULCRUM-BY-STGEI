@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/src/components/app_button.dart';
+import 'package:untitled/src/components/app_text_field.dart';
+import 'package:untitled/src/enums/enums.dart';
 import 'package:untitled/src/styles/AppFontsStyles.dart';
+import 'package:untitled/src/styles/Dimentions.dart';
 
 import '../../helpers/responsive.dart';
-import '../../styles/Assets.dart';
-import '../../styles/Colors.dart';
 
 class AuthView extends StatefulWidget {
-  static const String routeName = '/AuthView';
+  static const String routeName = '/';
   const AuthView({Key? key}) : super(key: key);
 
   @override
@@ -14,238 +16,113 @@ class AuthView extends StatefulWidget {
 }
 
 class _AuthViewState extends State<AuthView> {
+  final studentCodeController = TextEditingController();
+  final surnameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    return Responsive(
+      mobile: _buildMobileView(),
+      desktop: _buildDesktopView(),
+    );
+  }
+
+  Widget _buildMobileView() {
     return Scaffold(
-      backgroundColor: AppColors.ksecondary500,
-      body: SizedBox(
-        height: height,
-        width: width,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Responsive.isMobile(context)
-                ? const SizedBox()
-                : Expanded(
-                    child: Container(
-                      height: height,
-                      color: AppColors.kOtherBlue,
-                      child: Center(
-                        child: Text(
-                          'AdminExpress',
-                          style: AppFontsStyles.labelLarge(
-                            AppColors.kOtherBlue,
-                          ).copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.ksecondary600,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-            Expanded(
-              child: Container(
-                height: height,
-                margin: EdgeInsets.symmetric(
-                    horizontal: Responsive.isMobile(context)
-                        ? height * 0.032
-                        : height * 0.12),
-                color: AppColors.kprimary600,
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.only(bottom: 40.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(height: height * 0.2),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Let’s',
-                              style: AppFontsStyles.labelLarge(
-                                AppColors.kOtherBlue,
-                              ).copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.ksecondary600,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' Sign In 👇',
-                              style: AppFontsStyles.labelLarge(
-                                AppColors.kOtherBlue,
-                              ).copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.ksecondary600,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: height * 0.02),
-                      Text(
-                        'Hey, Enter your details to get sign in \nto your account.',
-                        style: AppFontsStyles.bodySmall(AppColors.kOtherPurple)
-                            .copyWith(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(height: height * 0.064),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text(
-                          'Email',
-                          style: AppFontsStyles.labelLarge(
-                            AppColors.kOtherBlue,
-                          ).copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.ksecondary600,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 6.0),
-                      Container(
-                        height: 50.0,
-                        width: width,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.0),
-                          color: AppColors.ksecondary600,
-                        ),
-                        child: TextFormField(
-                          style: AppFontsStyles.labelLarge(
-                            AppColors.kOtherBlue,
-                          ).copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.ksecondary600,
-                            fontSize: 16.0,
-                          ),
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            prefixIcon: IconButton(
-                              onPressed: () {},
-                              icon: Image.asset(AppAssets.mailIcon),
-                            ),
-                            contentPadding: const EdgeInsets.only(top: 16.0),
-                            hintText: 'Enter Email',
-                            hintStyle: AppFontsStyles.labelLarge(
-                              AppColors.kOtherBlue,
-                            ).copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.ksecondary600,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: height * 0.014),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text(
-                          'Password',
-                          style: AppFontsStyles.labelLarge(
-                            AppColors.kOtherBlue,
-                          ).copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.ksecondary600,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 6.0),
-                      Container(
-                        height: 50.0,
-                        width: width,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.0),
-                          color: AppColors.ksecondary600,
-                        ),
-                        child: TextFormField(
-                          style: AppFontsStyles.labelLarge(
-                            AppColors.kOtherBlue,
-                          ).copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.ksecondary600,
-                            fontSize: 16.0,
-                          ),
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            suffixIcon: IconButton(
-                              onPressed: () {},
-                              icon: Image.asset(AppAssets.checkIcon),
-                            ),
-                            prefixIcon: IconButton(
-                              onPressed: () {},
-                              icon: Image.asset(AppAssets.lockIcon),
-                            ),
-                            contentPadding: const EdgeInsets.only(top: 16.0),
-                            hintText: 'Enter Password',
-                            hintStyle: AppFontsStyles.labelLarge(
-                              AppColors.kOtherBlue,
-                            ).copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.ksecondary600,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: height * 0.03),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Forgot Password?',
-                            style: AppFontsStyles.labelLarge(
-                              AppColors.kOtherBlue,
-                            ).copyWith(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: height * 0.05),
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {},
-                          borderRadius: BorderRadius.circular(16.0),
-                          child: Ink(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 70.0, vertical: 18.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16.0),
-                              color: AppColors.kOtherBlue,
-                            ),
-                            child: Text(
-                              'Sign In',
-                              style: AppFontsStyles.labelLarge(
-                                AppColors.kOtherBlue,
-                              ).copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.ksecondary600,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Container(
+          constraints: BoxConstraints(maxWidth: 450),
+          decoration: const BoxDecoration(color: Colors.black),
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppDimentions.extraLarge * 3.5,
+              vertical: AppDimentions.extraLarge),
+          child: Column(
+            children: [
+              Text(
+                'Fulcrum Auth',
+                style: AppFontsStyles.titleLarge(Colors.white)
+                    .copyWith(fontWeight: FontWeight.w700, fontSize: 30),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: AppDimentions.medium,
+              ),
+              AppTextField(
+                  labelText: 'Student Code',
+                  hintText: 'Enter your assigned student code',
+                  controller: studentCodeController),
+              AppTextField(
+                  labelText: 'Last Name',
+                  hintText: 'Enter your last name in lowercase',
+                  controller: surnameController),
+              const SizedBox(
+                height: AppDimentions.medium,
+              ),
+              AppButton(
+                flex: true,
+                buttonType: ButtonType.LONG_BTN,
+                applyInternalPadding: true,
+                btnText: 'Authenticate',
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDesktopView() {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Container(
+          constraints: BoxConstraints(maxWidth: 800),
+          decoration: const BoxDecoration(color: Colors.black),
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppDimentions.extraLarge * 5,
+              vertical: AppDimentions.extraLarge * 3),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Fulcrum Auth',
+                style: AppFontsStyles.titleLarge(Colors.white)
+                    .copyWith(fontWeight: FontWeight.w700, fontSize: 50),
+              ),
+              const SizedBox(
+                height: AppDimentions.medium,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Flexible(
+                    child: AppTextField(
+                        labelText: 'Student Code',
+                        hintText: 'Enter your assigned student code',
+                        controller: studentCodeController),
+                  ),
+                  const SizedBox(
+                    width: AppDimentions.large * 2,
+                  ),
+                  Flexible(
+                    child: AppTextField(
+                        labelText: 'Last Name',
+                        hintText: 'Enter your last name in lowercase',
+                        controller: surnameController),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: AppDimentions.medium,
+              ),
+              AppButton(
+                flex: false,
+                buttonType: ButtonType.LONG_BTN,
+                applyInternalPadding: true,
+                btnText: 'Authenticate',
+              )
+            ],
+          ),
         ),
       ),
     );

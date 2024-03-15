@@ -256,7 +256,7 @@ class _ExamWidgetState extends State<ExamWidget> {
                             await Future.delayed(const Duration(seconds: 5));
                             Go(context).pop();
                             Go(context).to(
-                                routeName: Main.routeName,
+                                routeName: MainView.routeName,
                                 args: GoArgs(args: [
                                   {'injectChild': const SubmittedView()}
                                 ]));
@@ -318,7 +318,7 @@ class _ExamWidgetState extends State<ExamWidget> {
                           await Future.delayed(const Duration(seconds: 5));
                           Go(context).pop();
                           Go(context).to(
-                              routeName: Main.routeName,
+                              routeName: MainView.routeName,
                               args: GoArgs(args: [
                                 {'injectChild': const SubmittedView()}
                               ]));

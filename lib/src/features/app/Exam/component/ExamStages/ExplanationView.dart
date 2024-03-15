@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_navigator/go/go.dart';
 import 'package:untitled/src/components/ArrowBackHeader.dart';
-import 'package:untitled/src/components/GenericDataTable.dart';
-import 'package:untitled/src/features/app/Exam/component/ExamStages/OngoingExam/components/QuestionTracker.dart';
+import 'package:untitled/src/components/app_dialogue.dart';
 import 'package:untitled/src/features/app/Main/MainView.dart';
 import 'package:untitled/src/helpers/responsive.dart';
 import 'package:untitled/src/styles/Colors.dart';
 import 'package:untitled/src/styles/Dimentions.dart';
-import '../../../../../components/AppPieChart.dart';
 import '../../../../../components/app_button.dart';
-import '../../../../../components/submitted_table.dart';
 import '../../../../../enums/enums.dart';
 
 class ExplanationView extends StatefulWidget {
@@ -42,7 +39,7 @@ class _ExplanationViewState extends State<ExplanationView> {
             applyInternalPadding: true,
             btnText: 'Proceed to Hub',
             onTap: () {
-              Go(context).to(routeName: Main.routeName);
+              Go(context).to(routeName: MainView.routeName);
             },
           ),
         ],
@@ -107,10 +104,107 @@ class _ExplanationTrackerState extends State<ExplanationTracker> {
                     showDialog(
                         context: context,
                         builder: (_) {
-                          return const Padding(
-                            padding: EdgeInsets.all(AppDimentions.medium),
+                          return AppDialogue(
+                            title: 'Explanation',
                             child: Column(
-                              children: [],
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '1. Choose the option that best conveys the meaning of the underlined portion in the following sentence;',
+                                  textAlign: TextAlign.start,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  'Only the small fry get punished for such social misdemeanors',
+                                  textAlign: TextAlign.start,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  '\n\nA. small boys',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  'B. unimportant people',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  'C. frightened people',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  'D. frivolous people',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  'E. inexperienced people',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  '\n\nTime Spent: 00:00:00',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  'Correct Answer: B',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                ),
+                                Text(
+                                  '\n\nSmall Fry is a term used to describe an insignificant person. It means insignificant people or things.',
+                                  textAlign: TextAlign.start,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white),
+                                )
+                              ],
                             ),
                           );
                         });
