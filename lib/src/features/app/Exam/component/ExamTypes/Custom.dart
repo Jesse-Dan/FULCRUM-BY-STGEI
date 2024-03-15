@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/src/components/PopableHeader.dart';
+import 'package:untitled/src/components/ArrowBackHeader.dart';
 
 import '../../../../../styles/Colors.dart';
 import '../../../../../styles/Dimentions.dart';
@@ -18,7 +18,7 @@ class Custom extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  PopableHeader('Take an Exam - Custom Simulator', context),
+                  ArrowBackHeader('Take an Exam - Custom Simulator', context),
                   const SizedBox(height: AppDimentions.extraLarge),
                 ])));
   }

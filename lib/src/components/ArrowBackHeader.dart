@@ -4,7 +4,7 @@ import 'package:text_scroll/text_scroll.dart';
 
 import '../styles/Colors.dart';
 
-PopableHeader(text, context) => SingleChildScrollView(
+ArrowBackHeader(text, context) => SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

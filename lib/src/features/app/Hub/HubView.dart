@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_navigator/go/go.dart';
 import 'package:go_navigator/go/go_args.dart';
-import 'package:untitled/data/UserData.dart';
+import 'package:untitled/src/models/User.dart';
 import 'package:untitled/src/components/app_dialogue.dart';
 import 'package:untitled/src/components/app_notifier.dart';
 import '../../../enums/enums.dart';
@@ -23,39 +23,6 @@ class HubView extends StatefulWidget {
 }
 
 class _HubViewState extends State<HubView> {
-  final List<Exam> exams = [
-    Exam(
-        id: 0,
-        name: 'JAMB Simulator',
-        description: 'Practice by using the exact JAMB CBT Settings',
-        examType: ExamType.JAMB,
-        subjects: [],
-        syllabus: Syllabus(id: 0, syllabus: {}),
-        duration: const Duration(seconds: 3000),
-        examInstructions: 'examInstructions',
-        selected: false),
-    Exam(
-        id: 0,
-        name: 'WAEC Simulator',
-        description: 'Learn with aid a standard WAEC Questions.',
-        examType: ExamType.WAEC,
-        subjects: [],
-        syllabus: Syllabus(id: 0, syllabus: {}),
-        duration: const Duration(seconds: 3000),
-        examInstructions: 'examInstructions',
-        selected: false),
-    Exam(
-        id: 0,
-        name: 'Custom Simulator',
-        description:
-            'A Great tool to practice for Post-UTME, WAEC, NECO, NABTEB, etc.',
-        examType: ExamType.OTHERS,
-        subjects: [],
-        syllabus: Syllabus(id: 0, syllabus: {}),
-        duration: const Duration(seconds: 3000),
-        examInstructions: 'examInstructions',
-        selected: false),
-  ];
 
   List<BoardCardModel> hubCardsList(context) => [
         BoardCardModel(
@@ -101,23 +68,21 @@ class _HubViewState extends State<HubView> {
                         callBackTextOneColor: Colors.white,
                         callBackTextTwoColor: Colors.white,
                         titleColor: Colors.white,
-                        child: Expanded(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: List.generate(
-                              exams.length,
-                              (i) => ExamCard(exams[i], context: context,
-                                  onTap: () {
-                                useState(() {
-                                  exams.forEach((element) {
-                                    element.selected = false;
-                                  });
-                                  exams[i].selected = true;
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: List.generate(
+                            exams.length,
+                            (i) => ExamCard(exams[i], context: context,
+                                onTap: () {
+                              useState(() {
+                                exams.forEach((element) {
+                                  element.selected = false;
                                 });
-                              }),
-                            ),
+                                exams[i].selected = true;
+                              });
+                            }),
                           ),
                         ));
                   });
@@ -184,7 +149,7 @@ ExamCard(Exam examType,
         height: 60,
         width: double.infinity,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(2),
             color: examType.selected
                 ? Colors.white
                 : AppColors.kOtherPurple.withOpacity(.3)),

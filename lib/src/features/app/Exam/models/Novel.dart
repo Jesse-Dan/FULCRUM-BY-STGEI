@@ -1,5 +1,5 @@
 
-import '../../../../../data/UserData.dart';
+import '../../../../models/User.dart';
 
 class Novel {
   final int id;

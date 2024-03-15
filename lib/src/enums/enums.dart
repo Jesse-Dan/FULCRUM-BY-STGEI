@@ -69,7 +69,7 @@ enum PredefinedDateFormat {
 
 enum HandlerBtnCount { one, two, zero }
 
-enum ExamMode { Practice, Exam, Accuracy, Speed, Custom }
+enum ExamMode { Training, Exam, Accuracy, Speed, Custom }
 
 enum ExamType { JAMB, WAEC, OTHERS }
 

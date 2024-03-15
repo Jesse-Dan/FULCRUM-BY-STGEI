@@ -157,7 +157,7 @@ class AppButton extends StatelessWidget {
       style: btnTxtFontStyle ??
           TextStyle(
             fontFamily: 'Satoshi',
-            color: btnTextColor ?? AppColors.ksecondary600,
+            color: btnTextColor ?? Colors.white,
             fontSize: btnTxtFontSize ?? 14,
             fontWeight: FontWeight.w700,
             letterSpacing: 0.36,

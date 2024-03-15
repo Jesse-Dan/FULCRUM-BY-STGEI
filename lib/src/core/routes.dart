@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_navigator/go/go_navigator.dart';
 import 'package:untitled/src/features/app/ErrorView.dart';
 import 'package:untitled/src/features/app/Exam/Exam.dart';
-import 'package:untitled/src/features/app/Exam/component/ExamStages/OngoingExam.dart';
+import 'package:untitled/src/features/app/Exam/component/ExamStages/OngoingExam/OngoingExam.dart';
 
 import '../features/app/Main/MainView.dart';
 import '../features/app/Search/SearchView.dart';
@@ -21,8 +21,6 @@ MaterialPageRoute goNavigator(RouteSettings routeSettings) {
     ErrorView.routeName: (context, args) => ErrorView(
           errorMsg: args?.args[0]['errorMsg'],
         ),
-    OngoingExam.routeName: (context, args) => OngoingExam(
-          subjects: args?.args[0]['subjects'],
-        ),
+    OngoingExam.routeName: (context, args) => OngoingExam(),
   }).generateRoute(routeSettings);
 }

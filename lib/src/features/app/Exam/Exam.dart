@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:untitled/src/features/app/ErrorView.dart';
+import 'package:untitled/src/features/app/Exam/bloc/ExamBloc.dart';
 import 'package:untitled/src/features/app/Exam/component/ExamTypes/Custom.dart';
 import 'package:untitled/src/features/app/Exam/component/ExamTypes/Waec.dart';
+import 'package:untitled/src/features/app/Exam/models/ExamVariables.dart';
 import 'package:untitled/src/features/app/Hub/models/ExamType.dart';
 
 import '../../../enums/enums.dart';
@@ -16,10 +19,17 @@ class ExamView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// read bloc from context
+    var bloc = context.read<ExamBloc>();
+
+    /// initialize exam variables
+    bloc.examVariables = ExamVariables(exam: exam);
+
+    /// switch to required view
     return switch (exam?.examType) {
       ExamType.JAMB => const Jamb(),
       ExamType.WAEC => const Waec(),
-      ExamType.OTHERS => const Waec(),
+      ExamType.OTHERS => const Custom(),
       _ => const ErrorView(errorMsg: 'Invalid Input')
     };
   }
