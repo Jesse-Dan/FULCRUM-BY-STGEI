@@ -1,16 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/src/core/migrations/migration.dart';
-import 'package:untitled/src/core/sql/sqlConnection.dart';
-
-import 'src/features/App.dart';
+import 'package:untitled/src/modules/App.dart';
+import 'package:untitled/src/services/migrations/migration.dart';
+import 'package:untitled/src/services/sql/sqlConnection.dart';
 
 const String _user = 'finn';
 const String _password = 'finn';
 const String _databaseName = 'fulcrum_db';
 
 main() async {
-
   /// init ConnectionSettings
   SqlConnection.setSettings(const MySQLSettings(
     userName: _user,
